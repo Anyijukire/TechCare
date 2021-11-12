@@ -471,13 +471,16 @@ section .title::after{
     margin-top: -8px;
   }
   form .forgot-pass a{
-    color: #112266;
+    color: #F1F1F1;
     text-decoration: none;
     font-weight: bold;
   }
   form .forgot-pass a:hover{
     text-decoration: underline;
+    color: #F1F1F1;
   }
+
+
   form .btn{
     margin: 30px 0;
     height: 45px;
@@ -487,18 +490,28 @@ section .title::after{
     border-radius: 12px;
 
   }
+
   form .btn .inner{
     height: 100%;
     width: 300%;
     position: absolute;
     left: -100%;
+   
     z-index: -1;
-    background:  rgb(12, 12, 155);
+    background:  #112266;
     transition: all 0.4s;
   }
-  form .btn:hover .inner{
-    left: 0;
+
+  form .btn a {
+    color: #fff;
+    background-color: #112266;
+    text-decoration: none;
+    text-transform: uppercase;
   }
+
+
+
+
   form .btn button{
     height: 100%;
     width: 100%;
@@ -511,5 +524,6 @@ section .title::after{
     letter-spacing: 1px;
     cursor: pointer;
   }
+  
 
 

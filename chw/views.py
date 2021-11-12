@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from .models import Households,Referral
 from .forms import HouseholdRegistrationForm,ReferralRegistrationForm
 from django.contrib import messages
-from django.urls import reverse             
+from django.urls import reverse    
+from django.views.decorators.cache import cache_page
+
 
 
 
@@ -101,3 +103,12 @@ def child_assess(request):
 
 def mother_assess(request):
     return render(request,'mother_assess.html')
+
+
+@cache_page(60 * 15)
+def your_view(request):
+    return render(request)
+
+
+
+

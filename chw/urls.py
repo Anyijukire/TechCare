@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from django.urls import path
-from .views import child_assess, chwHouseholds,addHousehold,edit_household,assessments, general_assessment, new_household,referrals,followUp,refer,follow_up,delete_referree,edit_referral,new_household,child_assess,mother_assess
+from django.views.decorators.cache import cache_page
+from .views import child_assess, chwHouseholds,addHousehold,edit_household,assessments, general_assessment, new_household,referrals,followUp,refer,follow_up,delete_referree,edit_referral,new_household,child_assess,mother_assess, your_view
 
 urlpatterns = [
     path('household/',chwHouseholds,name='household'),
@@ -14,6 +15,9 @@ urlpatterns = [
     path('child_assess/',child_assess,name='child_assess'),
     path('mother_assess/',mother_assess,name='mother_assess'),
     path('patient_assessments/',assessments,name='patient_assessments'),
+    path('object/<int:object_id>/', cache_page(60 * 15)(your_view)),
+    path('object/<int:object_id>/', your_view),
+    path('object/cache/<int:object_id>/', cache_page(60 * 15)(your_view)),
 
 ]
 

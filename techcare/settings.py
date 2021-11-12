@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'core',
     'dashboard',
     'phonenumber_field',
+    'users',
 
 ]
 # ACCOUNT_ACTIVATION_DAYS = 7
@@ -59,6 +60,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',     # NEW
+    'django.middleware.cache.FetchFromCacheMiddleware', 
 ]
 
 ROOT_URLCONF = 'techcare.urls'
@@ -143,3 +146,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media/images/')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
